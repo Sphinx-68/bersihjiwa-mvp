@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pencegahan Obat Terlarang - BersihJiwa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .tab-btn.active { background:#0d9488; color:#fff; }
+    .fade-in { animation: fade .3s ease; }
+    @keyframes fade { from {opacity:0; transform:translateY(6px);} to {opacity:1; transform:none;} }
+    .bar { transition: width 1s ease; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen">
+
+  <!-- Header -->
+  <header class="bg-white shadow-sm sticky top-0 z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-teal-600 text-white flex items-center justify-center text-lg"><i class="fa-solid fa-hand-holding-heart"></i></div>
+        <div class="leading-tight">
+          <h1 class="font-bold text-teal-700 text-lg">BersihJiwa</h1>
+          <p class="text-xs text-slate-500">Pencegahan Obat Terlarang</p>
+        </div>
+      </div>
+      <button id="btnHotlineTop" class="bg-red-600 hover:bg-red-700 text-white text-sm font-semibold px-4 py-2 rounded-lg flex items-center gap-2">
+        <i class="fa-solid fa-phone-volume"></i><span class="hidden sm:inline">Bantuan Darurat</span>
+      </button>
+    </div>
+    <nav class="max-w-6xl mx-auto px-4 pb-3 flex gap-2 overflow-x-auto">
+      <button data-tab="dashboard" class="tab-btn active whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium bg-slate-100"><i class="fa-solid fa-chart-column mr-2"></i>Dashboard & Edukasi</button>
+      <button data-tab="skrining" class="tab-btn whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium bg-slate-100"><i class="fa-solid fa-clipboard-check mr-2"></i>Tes Risiko Mandiri</button>
+      <button data-tab="konsultasi" class="tab-btn whitespace-nowrap px-4 py-2 rounded-lg text-sm font-medium bg-slate-100"><i class="fa-solid fa-user-secret mr-2"></i>Konsultasi Anonim</button>
+    </nav>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6">
+
+    <!-- ===== TAB 1: DASHBOARD & EDUKASI ===== -->
+    <section id="tab-dashboard" class="tab-panel fade-in">
+      <div class="bg-gradient-to-r from-teal-600 to-emerald-500 text-white rounded-2xl p-6 md:p-8 mb-6">
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Obat yang Tepat, Dosis yang Tepat</h2>
+        <p class="text-teal-50 max-w-2xl">Banyak obat resep dokter menjadi berbahaya ketika dipakai tanpa anjuran: menimbulkan efek samping, ketergantungan, hingga overdosis. Kenali risikonya, Anda tidak sendirian.</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <button data-goto="skrining" class="bg-white text-teal-700 font-semibold px-4 py-2 rounded-lg text-sm">Mulai Tes Risiko</button>
+          <button data-goto="konsultasi" class="border border-white/70 text-white font-semibold px-4 py-2 rounded-lg text-sm">Bicara dengan Konselor</button>
+        </div>
+      </div>
+
+      <!-- Statistik -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-2">
+        <div class="bg-white rounded-xl p-4 shadow-sm"><p class="text-xs text-slate-500">Penyalahgunaan obat resep</p><p class="text-2xl font-bold text-teal-700 counter" data-target="68">0</p><p class="text-xs text-slate-400">% kasus berasal dari obat resep (contoh)</p></div>
+        <div class="bg-white rounded-xl p-4 shadow-sm"><p class="text-xs text-slate-500">Kelompok usia 15-24</p><p class="text-2xl font-bold text-amber-600 counter" data-target="41">0</p><p class="text-xs text-slate-400">% dari total kasus (contoh)</p></div>
+        <div class="bg-white rounded-xl p-4 shadow-sm"><p class="text-xs text-slate-500">Kasus overdosis</p><p class="text-2xl font-bold text-red-600 counter" data-target="1250">0</p><p class="text-xs text-slate-400">kasus per tahun (contoh)</p></div>
+        <div class="bg-white rounded-xl p-4 shadow-sm"><p class="text-xs text-slate-500">Pulih lewat rehabilitasi</p><p class="text-2xl font-bold text-emerald-600 counter" data-target="73">0</p><p class="text-xs text-slate-400">% peserta program (contoh)</p></div>
+      </div>
+      <p class="text-xs text-slate-400 mb-6"><i class="fa-solid fa-circle-info"></i> Angka pada mockup ini adalah data contoh untuk keperluan tampilan, bukan data resmi.</p>
+
+      <div class="grid lg:grid-cols-5 gap-6">
+        <!-- Grafik -->
+        <div class="lg:col-span-2 bg-white rounded-xl p-5 shadow-sm">
+          <h3 class="font-semibold mb-4"><i class="fa-solid fa-heart-crack text-red-500 mr-2"></i>Dampak Negatif (contoh)</h3>
+          <div class="space-y-4 text-sm">
+            <div><div class="flex justify-between mb-1"><span>Gangguan kesehatan mental</span><span>82%</span></div><div class="h-2.5 bg-slate-100 rounded-full"><div class="bar h-2.5 bg-red-500 rounded-full" data-w="82" style="width:0"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span>Kerusakan organ (hati, ginjal)</span><span>64%</span></div><div class="h-2.5 bg-slate-100 rounded-full"><div class="bar h-2.5 bg-orange-500 rounded-full" data-w="64" style="width:0"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span>Putus sekolah / kehilangan kerja</span><span>55%</span></div><div class="h-2.5 bg-slate-100 rounded-full"><div class="bar h-2.5 bg-amber-500 rounded-full" data-w="55" style="width:0"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span>Konflik keluarga</span><span>71%</span></div><div class="h-2.5 bg-slate-100 rounded-full"><div class="bar h-2.5 bg-rose-500 rounded-full" data-w="71" style="width:0"></div></div></div>
+            <div><div class="flex justify-between mb-1"><span>Risiko overdosis</span><span>38%</span></div><div class="h-2.5 bg-slate-100 rounded-full"><div class="bar h-2.5 bg-red-700 rounded-full" data-w="38" style="width:0"></div></div></div>
+          </div>
+        </div>
+
+        <!-- Edukasi interaktif -->
+        <div class="lg:col-span-3 bg-white rounded-xl p-5 shadow-sm">
+          <h3 class="font-semibold mb-4"><i class="fa-solid fa-book-medical text-teal-600 mr-2"></i>Kenali Jenis Obat Berisiko</h3>
+          <div id="eduButtons" class="flex flex-wrap gap-2 mb-4"></div>
+          <div id="eduContent" class="fade-in"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAB 2: SKRINING ===== -->
+    <section id="tab-skrining" class="tab-panel hidden">
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm p-6">
+        <h2 class="text-xl font-bold mb-1">Tes Risiko Mandiri</h2>
+        <p class="text-sm text-slate-500 mb-4">Jawab dengan jujur. Jawaban Anda tidak disimpan dan tidak dikirim ke mana pun.</p>
+        <div class="h-2 bg-slate-100 rounded-full mb-6"><div id="quizProgress" class="h-2 bg-teal-600 rounded-full transition-all" style="width:0%"></div></div>
+
+        <div id="quizBox">
+          <p id="quizCount" class="text-xs text-slate-400 mb-1"></p>
+          <p id="quizQuestion" class="font-semibold text-lg mb-4"></p>
+          <div id="quizOptions" class="grid gap-2"></div>
+        </div>
+
+        <div id="quizResult" class="hidden fade-in text-center">
+          <div id="resultIcon" class="w-20 h-20 mx-auto rounded-full flex items-center justify-center text-3xl mb-3"></div>
+          <h3 id="resultTitle" class="text-xl font-bold mb-1"></h3>
+          <p id="resultScore" class="text-sm text-slate-500 mb-3"></p>
+          <p id="resultDesc" class="text-slate-700 mb-5"></p>
+          <div class="flex flex-wrap justify-center gap-2">
+            <button data-goto="konsultasi" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-semibold">Konsultasi Anonim</button>
+            <button id="btnRetry" class="bg-slate-100 px-4 py-2 rounded-lg text-sm font-semibold">Ulangi Tes</button>
+          </div>
+          <p class="text-xs text-slate-400 mt-5">Hasil ini hanya gambaran awal, bukan diagnosis medis.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAB 3: KONSULTASI ===== -->
+    <section id="tab-konsultasi" class="tab-panel hidden">
+      <div class="max-w-2xl mx-auto bg-white rounded-2xl shadow-sm overflow-hidden">
+        <div class="bg-teal-600 text-white p-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center"><i class="fa-solid fa-user-nurse"></i></div>
+            <div><p class="font-semibold leading-tight">Konselor BersihJiwa</p><p class="text-xs text-teal-100"><i class="fa-solid fa-circle text-green-300 text-[8px]"></i> Online</p></div>
+          </div>
+          <button id="btnHotlineChat" class="bg-red-600 hover:bg-red-700 text-xs font-semibold px-3 py-2 rounded-lg"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Darurat</button>
+        </div>
+        <div class="bg-teal-50 text-teal-800 text-xs px-4 py-2"><i class="fa-solid fa-lock mr-1"></i>Identitas Anda disamarkan. Anda tampil sebagai <b id="alias">Anonim</b>.</div>
+
+        <div id="chatBox" class="h-80 overflow-y-auto p-4 space-y-3 bg-slate-50"></div>
+
+        <div class="p-3 border-t flex flex-wrap gap-2" id="quickReplies"></div>
+        <form id="chatForm" class="p-3 border-t flex gap-2">
+          <input id="chatInput" type="text" autocomplete="off" placeholder="Tulis pesan Anda..." class="flex-1 border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-teal-500">
+          <button class="bg-teal-600 text-white px-4 rounded-lg"><i class="fa-solid fa-paper-plane"></i></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-center text-xs text-slate-400 py-6 px-4">
+    Mockup MVP untuk keperluan tugas kuliah. Bukan pengganti layanan medis profesional.
+  </footer>
+
+  <!-- Modal Hotline -->
+  <div id="hotlineModal" class="hidden fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 fade-in">
+      <div class="flex justify-between items-start mb-3">
+        <h3 class="text-lg font-bold text-red-600"><i class="fa-solid fa-phone-volume mr-2"></i>Bantuan Darurat</h3>
+        <button id="closeModal" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark text-xl"></i></button>
+      </div>
+      <p class="text-sm text-slate-600 mb-4">Jika Anda atau orang di dekat Anda mengalami overdosis atau dalam bahaya, segera hubungi bantuan.</p>
+      <div class="space-y-2">
+        <button class="callBtn w-full flex items-center justify-between bg-red-50 border border-red-200 rounded-lg p-3 text-left" data-name="Darurat Medis (112)"><span><b>112</b><br><span class="text-xs text-slate-500">Layanan darurat</span></span><i class="fa-solid fa-phone text-red-600"></i></button>
+        <button class="callBtn w-full flex items-center justify-between bg-teal-50 border border-teal-200 rounded-lg p-3 text-left" data-name="BNN (184)"><span><b>184</b><br><span class="text-xs text-slate-500">Layanan informasi dan konsultasi BNN</span></span><i class="fa-solid fa-phone text-teal-600"></i></button>
+        <button class="callBtn w-full flex items-center justify-between bg-teal-50 border border-teal-200 rounded-lg p-3 text-left" data-name="Kemenkes (119)"><span><b>119</b><br><span class="text-xs text-slate-500">Layanan kesehatan (contoh)</span></span><i class="fa-solid fa-phone text-teal-600"></i></button>
+      </div>
+      <p class="text-xs text-slate-400 mt-4">Tombol di atas hanya simulasi pada mockup ini.</p>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-sm px-4 py-3 rounded-lg shadow-lg max-w-[90%]"></div>
+
+<script>
+  // ---------- Utilitas ----------
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
+  function toast(msg) {
+    const t = $('#toast'); t.textContent = msg; t.classList.remove('hidden');
+    clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.add('hidden'), 2800);
+  }
+
+  // ---------- Tab ----------
+  function showTab(name) {
+    $$('.tab-panel').forEach(p => p.classList.add('hidden'));
+    $('#tab-' + name).classList.remove('hidden');
+    $('#tab-' + name).classList.add('fade-in');
+    $$('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (name === 'dashboard') animateDashboard();
+  }
+  $$('.tab-btn').forEach(b => b.addEventListener('click', () => showTab(b.dataset.tab)));
+  document.addEventListener('click', e => {
+    const g = e.target.closest('[data-goto]');
+    if (g) showTab(g.dataset.goto);
+  });
+
+  // ---------- Dashboard: animasi angka & bar ----------
+  function animateDashboard() {
+    $$('.counter').forEach(el => {
+      const target = +el.dataset.target; let cur = 0;
+      const step = Math.max(1, Math.round(target / 40));
+      const iv = setInterval(() => {
+        cur += step;
+        if (cur >= target) { cur = target; clearInterval(iv); }
+        el.textContent = cur.toLocaleString('id-ID');
+      }, 25);
+    });
+    $$('.bar').forEach(b => { b.style.width = '0'; setTimeout(() => b.style.width = b.dataset.w + '%', 100); });
+  }
+
+  // ---------- Edukasi ----------
+  const eduData = [
+    { id: 'opioid', icon: 'fa-pills', name: 'Opioid / Analgesik Kuat',
+      desc: 'Obat pereda nyeri berat (misalnya morfin, kodein, tramadol) yang sah dipakai dokter untuk pasien tertentu.',
+      risk: ['Ketergantungan fisik dan psikis sangat cepat', 'Napas melambat hingga berhenti (overdosis)', 'Sembelit berat, mual, mengantuk'],
+      tip: 'Gunakan hanya sesuai dosis dan durasi dari dokter. Jangan berbagi obat dengan orang lain.' },
+    { id: 'benzo', icon: 'fa-moon', name: 'Obat Penenang / Tidur',
+      desc: 'Golongan benzodiazepin dan sejenisnya untuk cemas atau sulit tidur, hanya jangka pendek dan dengan resep.',
+      risk: ['Toleransi: butuh dosis makin besar', 'Lupa ingatan dan gangguan koordinasi', 'Gejala putus obat berat, bisa kejang', 'Sangat berbahaya jika dicampur alkohol'],
+      tip: 'Jangan berhenti mendadak. Konsultasikan ke dokter untuk penurunan dosis bertahap.' },
+    { id: 'stimulan', icon: 'fa-bolt', name: 'Stimulan',
+      desc: 'Obat yang meningkatkan fokus dan energi (misalnya untuk ADHD), kerap disalahgunakan untuk begadang atau belajar.',
+      risk: ['Jantung berdebar, tekanan darah naik', 'Sulit tidur, cemas, paranoid', 'Penurunan berat badan ekstrem'],
+      tip: 'Tanpa diagnosis dan pengawasan dokter, stimulan bukan "obat pintar".' },
+    { id: 'batuk', icon: 'fa-bottle-droplet', name: 'Obat Batuk / Flu Dosis Berlebih',
+      desc: 'Beberapa obat bebas atau obat batuk mengandung zat yang dapat menimbulkan efek mabuk jika diminum berlebihan.',
+      risk: ['Halusinasi dan kebingungan', 'Mual, muntah, gangguan jantung', 'Kerusakan hati bila mengandung parasetamol'],
+      tip: 'Baca aturan pakai di kemasan. Lebih banyak bukan berarti lebih cepat sembuh.' }
+  ];
+  const eduBtns = $('#eduButtons');
+  eduData.forEach((d, i) => {
+    const b = document.createElement('button');
+    b.className = 'edu-btn px-3 py-2 rounded-lg text-sm font-medium bg-slate-100 hover:bg-teal-100';
+    b.innerHTML = `<i class="fa-solid ${d.icon} mr-1"></i>${d.name}`;
+    b.addEventListener('click', () => showEdu(i));
+    eduBtns.appendChild(b);
+  });
+  function showEdu(i) {
+    const d = eduData[i];
+    $$('.edu-btn').forEach((b, j) => {
+      b.classList.toggle('bg-teal-600', i === j); b.classList.toggle('text-white', i === j);
+      b.classList.toggle('bg-slate-100', i !== j);
+    });
+    $('#eduContent').innerHTML = `
+      <div class="fade-in">
+        <h4 class="font-bold text-lg mb-1">${d.name}</h4>
+        <p class="text-sm text-slate-600 mb-3">${d.desc}</p>
+        <p class="text-sm font-semibold text-red-600 mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Bahaya penyalahgunaan:</p>
+        <ul class="list-disc ml-5 text-sm text-slate-700 space-y-1 mb-3">${d.risk.map(r => `<li>${r}</li>`).join('')}</ul>
+        <div class="bg-teal-50 text-teal-800 text-sm rounded-lg p-3"><i class="fa-solid fa-lightbulb mr-1"></i>${d.tip}</div>
+      </div>`;
+  }
+  showEdu(0);
+
+  // ---------- Skrining ----------
+  const questions = [
+    'Dalam 3 bulan terakhir, apakah Anda memakai obat tanpa resep atau anjuran dokter?',
+    'Apakah Anda pernah menambah dosis obat sendiri karena efeknya terasa berkurang?',
+    'Apakah Anda sulit berhenti atau mengurangi pemakaian meski sudah ingin?',
+    'Apakah Anda memakai obat untuk lari dari masalah, stres, atau perasaan sedih?',
+    'Apakah pemakaian obat pernah mengganggu sekolah, pekerjaan, atau hubungan dengan keluarga?',
+    'Apakah Anda pernah memakai obat milik orang lain atau obat dari sumber yang tidak jelas?',
+    'Apakah Anda pernah mencampur obat dengan alkohol atau obat lain?',
+    'Apakah Anda merasa gelisah, cemas, atau sakit saat tidak memakai obat?'
+  ];
+  const options = [['Tidak pernah', 0], ['Jarang', 1], ['Kadang-kadang', 2], ['Sering', 3]];
+  let qIndex = 0, score = 0;
+  function renderQ() {
+    $('#quizBox').classList.remove('hidden'); $('#quizResult').classList.add('hidden');
+    $('#quizCount').textContent = `Pertanyaan ${qIndex + 1} dari ${questions.length}`;
+    $('#quizQuestion').textContent = questions[qIndex];
+    $('#quizProgress').style.width = (qIndex / questions.length * 100) + '%';
+    const box = $('#quizOptions'); box.innerHTML = '';
+    options.forEach(([label, val]) => {
+      const b = document.createElement('button');
+      b.className = 'text-left border rounded-lg px-4 py-3 text-sm hover:bg-teal-50 hover:border-teal-500';
+      b.textContent = label;
+      b.addEventListener('click', () => { score += val; qIndex++; qIndex < questions.length ? renderQ() : showResult(); });
+      box.appendChild(b);
+    });
+  }
+  function showResult() {
+    $('#quizProgress').style.width = '100%';
+    $('#quizBox').classList.add('hidden'); $('#quizResult').classList.remove('hidden');
+    const max = questions.length * 3, pct = Math.round(score / max * 100);
+    let r;
+    if (pct <= 25) r = { t: 'Risiko Rendah', c: 'bg-green-100 text-green-600', i: 'fa-face-smile', d: 'Pola Anda saat ini relatif aman. Tetap pakai obat sesuai anjuran dokter dan jaga kesehatan mental Anda.' };
+    else if (pct <= 55) r = { t: 'Risiko Sedang', c: 'bg-amber-100 text-amber-600', i: 'fa-face-meh', d: 'Ada tanda-tanda yang perlu diwaspadai. Pertimbangkan berbicara dengan konselor atau dokter sebelum menjadi lebih sulit dikendalikan.' };
+    else r = { t: 'Risiko Tinggi', c: 'bg-red-100 text-red-600', i: 'fa-face-frown', d: 'Anda berisiko tinggi mengalami ketergantungan. Sangat disarankan segera berkonsultasi dengan konselor atau fasilitas rehabilitasi. Meminta bantuan adalah langkah yang berani.' };
+    $('#resultIcon').className = 'w-20 h-20 mx-auto rounded-full flex items-center justify-center text-3xl mb-3 ' + r.c;
+    $('#resultIcon').innerHTML = `<i class="fa-solid ${r.i}"></i>`;
+    $('#resultTitle').textContent = r.t;
+    $('#resultScore').textContent = `Skor ${score} dari ${max} (${pct}%)`;
+    $('#resultDesc').textContent = r.d;
+    toast('Tes selesai. Hasil hanya gambaran awal.');
+  }
+  $('#btnRetry').addEventListener('click', () => { qIndex = 0; score = 0; renderQ(); });
+  renderQ();
+
+  // ---------- Konsultasi anonim ----------
+  $('#alias').textContent = 'Anonim-' + Math.floor(1000 + Math.random() * 9000);
+  const chatBox = $('#chatBox');
+  function addMsg(text, me) {
+    const w = document.createElement('div');
+    w.className = 'flex fade-in ' + (me ? 'justify-end' : 'justify-start');
+    const time = new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+    w.innerHTML = `<div class="max-w-[80%] px-3 py-2 rounded-2xl text-sm ${me ? 'bg-teal-600 text-white rounded-br-sm' : 'bg-white border rounded-bl-sm'}">${text}<div class="text-[10px] mt-1 ${me ? 'text-teal-100' : 'text-slate-400'}">${time}</div></div>`;
+    chatBox.appendChild(w); chatBox.scrollTop = chatBox.scrollHeight;
+  }
+  function typingThenReply(text) {
+    const t = document.createElement('div');
+    t.className = 'text-xs text-slate-400'; t.textContent = 'Konselor sedang mengetik...';
+    chatBox.appendChild(t); chatBox.scrollTop = chatBox.scrollHeight;
+    setTimeout(() => { t.remove(); addMsg(text, false); }, 1300);
+  }
+  function botReply(msg) {
+    const m = msg.toLowerCase();
+    if (/overdosis|sekarat|bunuh|mati|tidak sadar/.test(m)) { openModal(); return 'Saya khawatir dengan kondisi Anda. Tolong segera hubungi layanan darurat yang muncul di layar. Anda tidak sendirian.'; }
+    if (/rehab|berhenti|lepas/.test(m)) return 'Keinginan untuk berhenti adalah langkah besar. Kami bisa membantu mencarikan layanan rehabilitasi terdekat. Apakah Anda lebih nyaman rawat jalan atau rawat inap?';
+    if (/stres|sedih|cemas|masalah|depresi/.test(m)) return 'Terima kasih sudah mau bercerita. Perasaan itu valid. Apa yang paling membebani Anda belakangan ini?';
+    if (/dokter|resep|dosis/.test(m)) return 'Sebaiknya jangan mengubah dosis sendiri. Kita bisa bahas cara berbicara dengan dokter Anda agar pengobatan lebih aman.';
+    return 'Saya mendengarkan. Ceritakan lebih lanjut, Anda tidak perlu menyebut identitas apa pun.';
+  }
+  addMsg('Halo, selamat datang. Ini ruang aman dan identitas Anda tidak ditampilkan. Apa yang ingin Anda ceritakan hari ini?', false);
+  ['Saya ingin berhenti memakai obat', 'Saya sedang banyak masalah', 'Bagaimana cara minum obat yang aman?'].forEach(q => {
+    const b = document.createElement('button');
+    b.className = 'text-xs border border-teal-600 text-teal-700 rounded-full px-3 py-1 hover:bg-teal-50';
+    b.textContent = q;
+    b.addEventListener('click', () => send(q));
+    $('#quickReplies').appendChild(b);
+  });
+  function send(text) {
+    if (!text.trim()) return;
+    addMsg(text, true); typingThenReply(botReply(text));
+  }
+  $('#chatForm').addEventListener('submit', e => {
+    e.preventDefault(); const i = $('#chatInput'); send(i.value); i.value = '';
+  });
+
+  // ---------- Modal Hotline ----------
+  function openModal() { $('#hotlineModal').classList.remove('hidden'); }
+  function closeModal() { $('#hotlineModal').classList.add('hidden'); }
+  $('#btnHotlineTop').addEventListener('click', openModal);
+  $('#btnHotlineChat').addEventListener('click', openModal);
+  $('#closeModal').addEventListener('click', closeModal);
+  $('#hotlineModal').addEventListener('click', e => { if (e.target.id === 'hotlineModal') closeModal(); });
+  $$('.callBtn').forEach(b => b.addEventListener('click', () => { closeModal(); toast('Simulasi: menghubungi ' + b.dataset.name + '...'); }));
+
+  // Mulai
+  animateDashboard();
+</script>
+</body>
+</html>
